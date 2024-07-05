@@ -29,14 +29,15 @@ form {
 
 `
 
-const ModalZoom = ({ foto, close }) => {
+const ModalZoom = ({ foto, alCerrar, alAlternarFavorito }) => {
 
     return (
         <>
             {foto && <>
                 <OverLay />
-                <DialogEstilizado open={!!foto} onClose={close}>
-                    <Imagen foto={foto} expandida={true} />
+                <DialogEstilizado open={!!foto} onClose={alCerrar}>
+                    <Imagen foto={foto} expandida={true} 
+                    alAlternarFavorito={alAlternarFavorito}/>
                     <form method="dialog">
                         <BotonIcono formMethod="Dialog" >
                             <img src="/iconos/cerrar.png" alt="Icono de cerrar" />

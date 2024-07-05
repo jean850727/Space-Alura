@@ -1,7 +1,6 @@
 import { styled } from "styled-components"
-import Titulo from "../../../Titulo"
-import Populares from "./Components/Galeria/Populares";
 import fotos from './fotos-populares.json'
+
 
 const ColumnaFotos = styled.section`
     display: flex;
@@ -27,16 +26,15 @@ const Boton = styled.button`
     margin-top: 16px;
 `;
 
-const Populares = () => {
+const FotosPopulares = () => {
     return (
-        <section>
-            <Titulo $align='center'>Populares</Titulo>
+        <>
             <ColumnaFotos>
                 {fotos.map(foto => <Imagen key={foto.id} src={foto.path} alt={foto.alt}/>)}
             </ColumnaFotos>
             <Boton>Ver más</Boton>
-        </section>
+        </>
     )
 }
 
-export default Populares
+export default FotosPopulares

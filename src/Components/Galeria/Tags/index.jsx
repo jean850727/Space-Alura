@@ -1,6 +1,20 @@
 import styled from "styled-components"
 import tags from "./tags-desafío.json"
 
+
+const BarraTags = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    margin-top: 56px;
+    `
+
+const TituloTags = styled.p`
+    color: #D9D9D9;
+    font-size: 24px;
+    margin: 0;
+`
+
 const TagsContainer = styled.section`
 display:flex;
 align-items: center;
@@ -34,13 +48,19 @@ const Div = styled.div`
     `
 
 
-const Tags = () => {
-    return <TagsContainer>
-        <TagTitulo>Buscar por tags:</TagTitulo>
-        <Div>
-            {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
-        </Div>
-    </TagsContainer>
+const Tags = ({ setTag }) => {
+    return (
+        <BarraTags>
+            <TituloTags>Buscar por etiquetas:</TituloTags>
+            <Div>
+                {tags.map(tag => <Tag key={tag.id}
+                    onClick={() => setTag(Tag.Tag)}>
+                    {tag.titulo}</Tag>)}
+            </Div>
+        </BarraTags>
+
+
+    )
 }
 
 export default Tags    

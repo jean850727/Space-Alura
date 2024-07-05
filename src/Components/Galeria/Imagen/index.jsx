@@ -1,10 +1,7 @@
-import styled from "styled-components";
-import BotonIcono from "../../BotonIcono";
-
-
-
+import { styled } from "styled-components"
+import BotonIcono from "../../BotonIcono"
 const Figure = styled.figure`
-    width: ${(props) => (props.$expandida ? '90%' : '448px')};
+    width: ${props => props.$expandida ? '90%' : '370px'};
     max-width: 100%;
     margin: 0;
     display: flex;
@@ -25,25 +22,23 @@ const Figure = styled.figure`
         h4 {
             flex-grow: 1;
         }
-        h3,
-        h4 {
+        h3, h4 {
             margin: 0;
             font-size: 16px;
         }
     }
-`;
-
-const Pie = styled.footer`
-display:flex;
-justify-content: space-between;
-align-items: center;
-
-
 `
 
+const Pie = styled.footer`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 
-
-const Imagen = ({ foto, expandida = false, alSolicitarZoom }) => {
+const Imagen = ({ foto, expandida = false, alSolicitarZoom,alAlternarFavorito}) => {
+    
+ const iconoFavorito= foto.favorita ? "/iconos/favorito-activo.png" :"/iconos/favorito.png"   
+    
     return (
         <Figure $expandida={expandida} id={`foto-${foto.id}`}>
             <img src={foto.path} alt={foto.alt} />
@@ -51,14 +46,12 @@ const Imagen = ({ foto, expandida = false, alSolicitarZoom }) => {
                 <h3>{foto.titulo}</h3>
                 <Pie>
                     <h4>{foto.fuente}</h4>
-                    <BotonIcono>
-                        <img src="/iconos/favorito.png" alt="Icono de favorito" />
+                    <BotonIcono onClick={()=>alAlternarFavorito(foto)}>
+                        <img src={iconoFavorito} alt="Icone de favorito" />
                     </BotonIcono>
-                    {!expandida && <BotonIcono aria-hidden=
-                        {expandida} onClick={() => alSolicitarZoom(foto)}>
-                        <img src="/iconos/expandir.png" alt="Icono de expandir" />
-                    </BotonIcono>}
-
+                    {!expandida && <BotonIcono aria-hidden={expandida} onClick={()=>alSolicitarZoom(foto)}>
+                    <img src="/iconos/expandir.png" alt="Icono de expandir" />
+                </BotonIcono>}
                 </Pie>
             </figcaption>
         </Figure>)

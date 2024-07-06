@@ -6,9 +6,9 @@ import Banner from "./Components/Banner";
 import banner from "./assets/banner.png";
 import Galeria from "./Components/Galeria";
 import fotos from "./fotos.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ModalZoom from "./Components/ModalZoom";
-import Pie from "/Components/Pie";
+import Pie from "./Components/Pie";
 
 
 
@@ -85,10 +85,10 @@ const App = () => {
             <BarraLateral />
 
             <ContenidoGaleria>
-              <Banner bannerBackground={bannerBackground} texto="La galeria más completa de fotos del espacio"
+              <Banner texto="La galeria más completa de fotos del espacio"
                 backgroundImage={banner} />
               <Galeria fotos={fotosDeGaleria} 
-                fotoSelecionada={foto => setFotoSeleccionada(foto)}
+                alSeleccionarFoto={foto => setFotoSeleccionada(foto)}
                 alAlternarFavorito={alAlternarFavorito}
                 setTag={setTag} />
             </ContenidoGaleria>

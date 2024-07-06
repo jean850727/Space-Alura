@@ -31,7 +31,7 @@ const Galeria = ({ fotos = [], setTag, alSeleccionarFoto,alAlternarFavorito }) =
                     <ImagenesContainer>
                         {fotos.map(foto => <Imagen
                         alAlternarFavorito= {alAlternarFavorito}
-                        alSolicitarZoom={fotoSelecionada}
+                        alSolicitarZoom={alSeleccionarFoto}
                             key={foto.id}
                             foto={foto} />)
                         }

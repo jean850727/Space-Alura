@@ -13,7 +13,7 @@ const HeaderEstilizado = styled.header`
 
 const Cabecera = () => {
     return <HeaderEstilizado>
-        <img src="img/logo.png" alt="Logo de Space App" />
+        <img src="img/Logo.png" alt="Logo de Space App" />
         <CampoTexto />
     </HeaderEstilizado>
 }

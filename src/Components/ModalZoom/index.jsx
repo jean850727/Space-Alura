@@ -11,12 +11,12 @@ right: 0;
 bottom: 0;
 `
 const DialogEstilizado = styled.dialog`
-position: absolute;
-top: 294px;
+position: fixed;
+top: 10%;
 background: transparent;
 padding: 0;
 border: 0;
-width: 1156px;
+width: 50%;
 display: flex;
 justify-content: center;
 form {
